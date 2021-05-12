@@ -1,0 +1,7 @@
+.movie-card {
+  width: 20%;
+}
+
+.movie-card > img {
+  width: 100%;
+}
