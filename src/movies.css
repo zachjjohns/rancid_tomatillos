@@ -1,6 +1,7 @@
 .movies-display {
   width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  background: #404040;
 }
