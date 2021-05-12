@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import MovieCard from './MovieCard';
 
 export default function Movies({ movies }) {
 
   const movieCards = movies.map(movie => {
     return (
-      <movieCard
+      <MovieCard
+        key={movie.id}
         img={movie.poster_path}
         title={movie.title}
       />
