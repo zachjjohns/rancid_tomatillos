@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import './MovieCard.css';
 
-export default function MovieCard({img, title, key}) {
+export default function MovieCard({ img, title, key }) {
   return (
     <div key={key}>
       <img alt=''src={img}></img>
