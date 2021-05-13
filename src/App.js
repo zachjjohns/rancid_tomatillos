@@ -12,13 +12,18 @@ export default class App extends Component {
       movies: movieData.movies
     }
   }
+
+  displayMovieDetails() {
+    console.log("We deed eet")
+  }
+
   render() {
     return (
       <main>
         <header>
           <NavBar/>
         </header>
-        <Movies movies={this.state.movies}/>
+        <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>
       </main>
     )
   }
