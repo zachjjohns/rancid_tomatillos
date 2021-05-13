@@ -17,6 +17,10 @@ export default class App extends Component {
     console.log("We deed eet")
   }
 
+  //throw in id, we want to cross match it with all our movies in state,
+  //find that exact movie, pull that movie out, make it cover the entire screen
+  //add delete button on top right, onClick (basically re-render Movies)
+
   render() {
     return (
       <main>
