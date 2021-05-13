@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import movieData from './movieData';
 import Movies from './Movies';
 import NavBar from './NavBar';
+import SingleMovie from './SingleMovie';
 import './App.css';
 
 
@@ -13,10 +14,9 @@ export default class App extends Component {
     }
   }
 
-  displayMovieDetails(id) {
-    const foundMovie = this.state.movies.find(movie => movie.id === id);
-    console.log("We deed eet")
-    return foundMovie
+  displayMovieDetails = (id) => {
+    const foundMovie = this.state.movies.filter(movie => movie.id === id);
+    this.setState({movies: foundMovie})
   }
 
   //throw in id, we want to cross match it with all our movies in state,
@@ -27,7 +27,8 @@ export default class App extends Component {
     return (
       <div>
         <NavBar />
-        <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>
+        {this.state.movies.length === 1 && <SingleMovie movie={this.state.movies}/>}
+        {this.state.movies.length > 1 && <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
       </div>
     )
   }
