@@ -13,8 +13,10 @@ export default class App extends Component {
     }
   }
 
-  displayMovieDetails() {
+  displayMovieDetails(id) {
+    const foundMovie = this.state.movies.find(movie => movie.id === id);
     console.log("We deed eet")
+    return foundMovie
   }
 
   //throw in id, we want to cross match it with all our movies in state,
@@ -23,12 +25,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <main>
-        <header>
-          <NavBar/>
-        </header>
+      <div>
+        <NavBar />
         <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>
-      </main>
+      </div>
     )
   }
 }

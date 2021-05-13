@@ -5,6 +5,7 @@
   background: #484848;
   box-shadow: 5px 5px 11px #3c3c3c,
   -5px -5px 11px #545454;
+  cursor: pointer;
 }
 
 .movie-card > img {
