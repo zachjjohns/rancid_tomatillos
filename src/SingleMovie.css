@@ -1,0 +1,19 @@
+.container {
+  top: 0;
+  width: 100%;
+  background: #404040
+}
+
+.movie-photos {
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 400px;
+}
+
+.movie-poster {
+  top: 80px;
+  width: 10%;
+  border: solid 1px black;
+}
