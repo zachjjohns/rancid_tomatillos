@@ -19,7 +19,7 @@ export default class App extends Component {
   }
 
   returnHome = () => {
-    this.setState(movieData.movies);
+    this.setState({movies: movieData.movies});
   }
 
   render() {
