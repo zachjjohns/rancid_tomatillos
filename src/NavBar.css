@@ -5,6 +5,7 @@
   height: 75px;
   background-color: #303030;
   border-bottom: 4px solid cyan;
+  min-width: 100%;
 }
 
 a {

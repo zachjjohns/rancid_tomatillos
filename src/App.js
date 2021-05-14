@@ -5,7 +5,6 @@ import NavBar from './NavBar';
 import SingleMovie from './SingleMovie';
 import './App.css';
 
-
 export default class App extends Component {
   constructor() {
     super();
@@ -19,10 +18,14 @@ export default class App extends Component {
     this.setState({movies: foundMovie})
   }
 
+  returnHome = () => {
+    this.setState(movieData.movies);
+  }
+
   render() {
     return (
       <div className="app">
-        <NavBar />
+        <NavBar returnHome={this.returnHome} movieState={this.state.movies}/>
         {this.state.movies.length === 1 && <SingleMovie movie={this.state.movies}/>}
         {this.state.movies.length > 1 && <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
       </div>
