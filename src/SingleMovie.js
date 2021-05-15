@@ -1,11 +1,14 @@
 import React from 'react';
 import './SingleMovie.css';
 
-export default function SingleMovie({ movie }) {
+export default function SingleMovie({ movie, returnHome }) {
   console.log(movie)
   return (
-    <div className="banner-container" id={movie[0].id}>
-      <img className="banner-photo" src={movie[0].backdrop_path} alt={`Background banner for ${movie[0].title}`}></img>
+    <div>
+      <div className="banner-container" id={movie[0].id}>
+        <img className="banner-photo" src={movie[0].backdrop_path} alt={`Background banner for ${movie[0].title}`}></img>
+        <button className="return-home" onClick={() => returnHome()}><i className="fas fa-times"></i></button>
+      </div>
       <div className="info">
         <img className="movie-poster" src={movie[0].poster_path} alt=" "></img>
         <div className="details-container">

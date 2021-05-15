@@ -25,8 +25,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <NavBar returnHome={this.returnHome} movieState={this.state.movies}/>
-        {this.state.movies.length === 1 && <SingleMovie movie={this.state.movies}/>}
+        <NavBar movieState={this.state.movies}/>
+        {this.state.movies.length === 1 && <SingleMovie movie={this.state.movies} returnHome={this.returnHome}/>}
         {this.state.movies.length > 1 && <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
       </div>
     )
