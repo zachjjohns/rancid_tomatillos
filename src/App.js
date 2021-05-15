@@ -9,7 +9,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      error: ''
     }
   }
 
