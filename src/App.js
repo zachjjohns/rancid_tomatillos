@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {getAllMovies} from './API';
-import movieData from './movieData';
+// import movieData from './movieData';
 import Movies from './Movies';
 import NavBar from './NavBar';
 import SingleMovie from './SingleMovie';
@@ -16,9 +16,10 @@ export default class App extends Component {
   }
   
   componentDidMount = async() => {
+    let fetchedMovies = [];
     try {
-        const { movieData } = await getAllMovies()
-        this.setState({movies: movieData.movies})
+        fetchedMovies = await getAllMovies();
+        this.setState({movies: fetchedMovies.movies})
       } catch (e) {
         this.setState({error: "Error: could not retrieve movie data"})
       }
@@ -30,7 +31,7 @@ export default class App extends Component {
   }
 
   returnHome = () => {
-    this.setState({movies: movieData.movies});
+    this.componentDidMount();
   }
 
   render() {
