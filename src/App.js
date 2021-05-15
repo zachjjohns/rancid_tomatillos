@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import movieData from './movieData';
 import Movies from './Movies';
-
+import NavBar from './NavBar';
+import SingleMovie from './SingleMovie';
+import './App.css';
 
 export default class App extends Component {
   constructor() {
@@ -10,11 +12,23 @@ export default class App extends Component {
       movies: movieData.movies
     }
   }
+
+  displayMovieDetails = (id) => {
+    const foundMovie = this.state.movies.filter(movie => movie.id === id);
+    this.setState({movies: foundMovie})
+  }
+
+  returnHome = () => {
+    this.setState({movies: movieData.movies});
+  }
+
   render() {
     return (
-      <main>
-        <Movies movies={this.state.movies}/>
-      </main>
+      <div className="app">
+        <NavBar movieState={this.state.movies}/>
+        {this.state.movies.length === 1 && <SingleMovie movie={this.state.movies} returnHome={this.returnHome}/>}
+        {this.state.movies.length > 1 && <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
+      </div>
     )
   }
 }
