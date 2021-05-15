@@ -10,9 +10,18 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       error: ''
     }
+  }
+  
+  componentDidMount = async() => {
+    try {
+        const { movieData } = await getAllMovies()
+        this.setState({movies: movieData.movies})
+      } catch (e) {
+        this.setState({error: "Error: could not retrieve movie data"})
+      }
   }
 
   displayMovieDetails = (id) => {
@@ -25,6 +34,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(getAllMovies())
     return (
       <div className="app">
         <NavBar returnHome={this.returnHome} movieState={this.state.movies}/>
