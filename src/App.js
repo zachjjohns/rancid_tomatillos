@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {getAllMovies} from './API';
 import movieData from './movieData';
 import Movies from './Movies';
 import NavBar from './NavBar';
