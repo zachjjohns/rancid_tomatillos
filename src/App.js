@@ -20,7 +20,7 @@ export default class App extends Component {
         fetchedMovies = await getAllMovies();
         this.setState({movies: fetchedMovies.movies})
       } catch (e) {
-        this.setState({error: "Error: could not retrieve movie data"})
+        this.setState({error: e.message})
       }
   }
 
@@ -34,10 +34,11 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(getAllMovies())
+    console.log(!!this.state.error)
     return (
       <div className="app">
-        <NavBar movieState={this.state.movies}/>
+        <NavBar />
+        {!!this.state.error && <h2>{this.state.error}</h2>}
         {this.state.movies.length === 1 && <SingleMovie movie={this.state.movies} returnHome={this.returnHome}/>}
         {this.state.movies.length > 1 && <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
       </div>
