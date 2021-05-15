@@ -9,7 +9,7 @@ export default function NavBar({returnHome, movieState}) {
         <input type="search" placeholder="Search Movies"></input>
         <span>UserName</span>
       </div>
-      {movieState.length === 1 && <button onClick={() => returnHome()}><i className="fas fa-times"></i></button>}
+      {movieState.length === 1 && <button className="return-home" onClick={() => returnHome()}><i className="fas fa-times"></i></button>}
     </header>
   )
 }

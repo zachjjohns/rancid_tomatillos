@@ -8,6 +8,15 @@
   min-width: 100%;
 }
 
+.return-home {
+  font-size: 2rem;
+  color: #FFF;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding-right: 1rem;
+}
+
 a {
   text-decoration: none;
   height: 75%;
