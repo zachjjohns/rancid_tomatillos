@@ -15,9 +15,6 @@
   overflow: inherit;
   opacity: 70%;
   z-index: -1;
-  /* background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; */
 }
 
 .return-home {
@@ -36,7 +33,8 @@
 
 .movie-poster {
   top: 80px;
-  width: 15%;
+  width: 20%;
+  height: 450px;
   border: solid 1px black;
   opacity: 100%;
 }
