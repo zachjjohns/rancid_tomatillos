@@ -34,8 +34,6 @@ export default class App extends Component {
       this.setState({error: e.message})
     }
   }
-  // const foundMovie = this.state.movies.filter(movie => movie.id === id);
-  // this.setState({movies: foundMovie})
   
   returnHome = () => {
     this.componentDidMount();
