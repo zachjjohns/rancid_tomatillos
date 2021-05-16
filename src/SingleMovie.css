@@ -36,7 +36,8 @@
 
 .movie-poster {
   top: 80px;
-  width: 15%;
+  width: 20%;
+  height: 450px;
   border: solid 1px black;
   opacity: 100%;
 }

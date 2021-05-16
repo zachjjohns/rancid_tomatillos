@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getAllMovies} from './API';
+import {getAllMovies, getSingleMovie} from './API';
 import Movies from './Movies';
 import NavBar from './NavBar';
 import SingleMovie from './SingleMovie';
@@ -24,17 +24,24 @@ export default class App extends Component {
       }
   }
 
-  displayMovieDetails = (id) => {
-    const foundMovie = this.state.movies.filter(movie => movie.id === id);
-    this.setState({movies: foundMovie})
+  displayMovieDetails = async id => {
+    let fetchedMovie = [];
+    try {
+      fetchedMovie = await getSingleMovie(id);
+      this.setState({movies: [fetchedMovie.movie]});
+      console.log(this.state.movies);
+    } catch (e) {
+      this.setState({error: e.message})
+    }
   }
-
+  // const foundMovie = this.state.movies.filter(movie => movie.id === id);
+  // this.setState({movies: foundMovie})
+  
   returnHome = () => {
     this.componentDidMount();
   }
 
   render() {
-    console.log(!!this.state.error)
     return (
       <div className="app">
         <NavBar />
