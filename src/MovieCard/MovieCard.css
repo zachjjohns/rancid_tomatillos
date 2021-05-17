@@ -16,8 +16,9 @@ a {
 }
 
 .movie-card > a > h3 {
-  font-size: 50px;
-  margin: 0;
+  font-size: 20px;
+  margin: 4px;
+  margin-bottom: 8px;
 }
 
 .movie-card > a > img {
