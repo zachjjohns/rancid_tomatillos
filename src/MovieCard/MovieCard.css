@@ -1,14 +1,25 @@
-.movie-card {
-  margin-top: 20px;
+
+a {
   width: 15%;
+  margin-top: 20px;
+}
+
+.movie-card {
   border-radius: 0px;
   background: #484848;
   box-shadow: 5px 5px 11px #3c3c3c,
   -5px -5px 11px #545454;
   cursor: pointer;
   text-align: center;
+  width: 15%;
+  margin-top: 20px;
 }
 
-.movie-card > img {
+.movie-card > a > h3 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.movie-card > a > img {
   width: 100%;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {getAllMovies, getSingleMovie} from '../API';
+import { Switch, Route } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
@@ -42,12 +43,19 @@ export default class App extends Component {
     return (
       <div className="app">
         <NavBar />
-        {!!this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.movies.length === 1 && <SingleMovie movie={this.state.movies} returnHome={this.returnHome}/>}
-        {this.state.movies.length > 1 && <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
+          {!!this.state.error && <h2>{this.state.error}</h2>}
+          <Switch>
+            {this.state.movies.length === 1 && 
+            <Route path={`/${this.state.movies.id}`}>
+              <SingleMovie movie={this.state.movies} returnHome={this.returnHome}/>
+            </Route>}
+            {this.state.movies.length > 1 && 
+            <Route exact path='/'>
+              <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>
+            </Route>}
+          </Switch>
       </div>
-    )
-  }
+  )}
 }
 
 
