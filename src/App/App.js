@@ -11,7 +11,8 @@ export default class App extends Component {
     super();
     this.state = {
       movies: [],
-      error: ''
+      error: '',
+      singleMovie: {},
     }
   }
   
@@ -29,13 +30,15 @@ export default class App extends Component {
     let fetchedMovie = [];
     try {
       fetchedMovie = await getSingleMovie(id);
-      this.setState({movies: [fetchedMovie.movie]});
+      console.log(fetchedMovie);
+      this.setState({singleMovie: fetchedMovie.movie});
     } catch (e) {
       this.setState({error: e.message})
     }
   }
   
   returnHome = () => {
+    this.setState({singleMovie: {}})
     this.componentDidMount();
   }
 
@@ -45,14 +48,12 @@ export default class App extends Component {
         <NavBar />
           {!!this.state.error && <h2>{this.state.error}</h2>}
           <Switch>
-            {this.state.movies.length === 1 && 
-            <Route path={`/${this.state.movies.id}`}>
-              <SingleMovie movie={this.state.movies} returnHome={this.returnHome}/>
-            </Route>}
-            {this.state.movies.length > 1 && 
             <Route exact path='/'>
               <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>
-            </Route>}
+            </Route>
+            <Route path={`/${this.state.singleMovie.id}`}>
+              <SingleMovie movie={this.state.singleMovie} returnHome={this.returnHome}/>
+            </Route>
           </Switch>
       </div>
   )}
