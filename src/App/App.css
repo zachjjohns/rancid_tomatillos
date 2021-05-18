@@ -5,3 +5,11 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+a:visited {
+  color: #FFFFFF;
+}

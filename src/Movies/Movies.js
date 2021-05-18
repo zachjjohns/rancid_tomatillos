@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCard from './MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 import './movies.css';
 
 export default function Movies({ movies, displayMovieDetails }) {

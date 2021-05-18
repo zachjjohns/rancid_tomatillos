@@ -18,17 +18,23 @@
 }
 
 .return-home {
-  opacity: .5;
   background-color: grey;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
   padding: 2px;
-  border-radius: 150px;
-  width: 40px;
-  margin-left: 97%;
+  vertical-align: middle;
+  margin-left: 96%;
   margin-top: 6px;
+  box-shadow: 5px 5px 10px black;
+  opacity: .7;
 }
 
 .return-home:hover {
-  opacity: .8;
+  color: cyan;
+  opacity: .9;
 }
 
 .movie-poster {
@@ -45,6 +51,7 @@
 }
 
 .details-container {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
