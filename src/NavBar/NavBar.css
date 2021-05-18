@@ -17,12 +17,8 @@
   padding-right: 1rem;
 }
 
-a {
-  text-decoration: none;
+header > a {
   height: 75%;
   font-size: 300%;
 }
 
-a:visited {
-  color: #fff;
-}

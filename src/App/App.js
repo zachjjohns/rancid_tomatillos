@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {getAllMovies, getSingleMovie} from '../API';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
@@ -16,31 +16,27 @@ export default class App extends Component {
     }
   }
   
-  componentDidMount = async() => {
+  componentDidMount = async () => {
     let fetchedMovies = [];
     try {
         fetchedMovies = await getAllMovies();
-        this.setState({movies: fetchedMovies.movies})
+        console.log(fetchedMovies)
+        this.setState({movies: fetchedMovies.movies});
       } catch (e) {
         this.setState({error: e.message})
       }
   }
 
   displayMovieDetails = async id => {
-    let fetchedMovie = [];
+    let fetchedMovie = {};
     try {
       fetchedMovie = await getSingleMovie(id);
-      console.log(fetchedMovie);
       this.setState({singleMovie: fetchedMovie.movie});
     } catch (e) {
       this.setState({error: e.message})
     }
   }
   
-  // returnHome = () => {
-  //   this.setState({singleMovie: {}})
-  //   this.componentDidMount();
-  // }
 
   render() {
     return (
@@ -54,6 +50,7 @@ export default class App extends Component {
             <Route path={`/${this.state.singleMovie.id}`}>
               <SingleMovie movie={this.state.singleMovie}/>
             </Route>
+            <Redirect to='/' />
           </Switch>
       </div>
   )}
