@@ -17,8 +17,8 @@ export default function Movies({ movies, displayMovieDetails }) {
   })
 
     return (
-      <div className='movies-display'>
+      <main className='movies-display'>
         {movieCards}
-      </div>
+      </main>
     )
 }

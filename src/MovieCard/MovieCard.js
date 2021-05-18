@@ -10,4 +10,3 @@ export default function MovieCard({ img, title, id, displayMovieDetails}) {
     </Link >
   )
 }
-
