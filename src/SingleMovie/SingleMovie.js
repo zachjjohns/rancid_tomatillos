@@ -1,13 +1,13 @@
 import React from 'react';
 import './SingleMovie.css';
+import { Link } from 'react-router-dom';
 
-export default function SingleMovie({ movie, returnHome }) {
-  console.log(movie.backdrop_path);
+export default function SingleMovie({ movie }) {
   return (
     <div>
       <div className="banner-container" id={movie.id}>
         <img className="banner-photo" src={movie.backdrop_path} alt={`Background banner for ${movie.title}`}></img>
-        <button className="return-home" onClick={() => returnHome()}><i className="fas fa-times"></i></button>
+        <Link to='/' className="return-home"><i className="fas fa-times"></i></Link>
       </div>
       <div className="info">
         <img className="movie-poster" src={movie.poster_path} alt=" "></img>

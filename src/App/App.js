@@ -37,10 +37,10 @@ export default class App extends Component {
     }
   }
   
-  returnHome = () => {
-    this.setState({singleMovie: {}})
-    this.componentDidMount();
-  }
+  // returnHome = () => {
+  //   this.setState({singleMovie: {}})
+  //   this.componentDidMount();
+  // }
 
   render() {
     return (
@@ -52,7 +52,7 @@ export default class App extends Component {
               <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>
             </Route>
             <Route path={`/${this.state.singleMovie.id}`}>
-              <SingleMovie movie={this.state.singleMovie} returnHome={this.returnHome}/>
+              <SingleMovie movie={this.state.singleMovie}/>
             </Route>
           </Switch>
       </div>
