@@ -19,7 +19,7 @@ export default class App extends Component {
   componentDidMount = async () => {
     try {
       const fetchedMovies = await getAllMovies();
-        this.setState({movies: fetchedMovies.movies});
+      this.setState({movies: fetchedMovies.movies});
       } catch (e) {
         this.setState({error: e.message})
       }
@@ -30,7 +30,7 @@ export default class App extends Component {
       const fetchedMovie = await getSingleMovie(id);
       this.setState({singleMovie: fetchedMovie.movie});
     } catch (e) {
-      this.setState({error: e.message})
+      this.setState({error: e})
     }
   }
   
@@ -39,13 +39,14 @@ export default class App extends Component {
     return (
       <div className="app">
         <NavBar />
-          {!!this.state.error && <h2>{this.state.error}</h2>}
           <Switch>
             <Route exact path='/'>
-              <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>
+              {!!this.state.error ? <h2>{this.state.error}</h2> :
+              <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
             </Route>
-            <Route path={`/${this.state.singleMovie.id}`}>
-              <SingleMovie movie={this.state.singleMovie}/>
+            <Route path={`/:id`}>
+              {!!this.state.error ? <h2>{this.state.error}</h2> :
+              <SingleMovie movie={this.state.singleMovie}/>}
             </Route>
             <Redirect to='/' />
           </Switch>
