@@ -25,6 +25,18 @@ describe('Single Movie View', () => {
     })
   })
 
+  it('should contain a banner photo', () => {
+    cy.get('.banner-photo')
+  });
+
+  it('should contain a poster image of the movie', () => {
+    cy.get('.movie-poster')
+  });
+
+  it('should have a button to close details and return to the main page', () => {
+    cy.get('i')
+  });
+
   it('should be render specific movie details', () => {
     cy.get('section').contains("Release Date:")
       .get('section').contains("Genres:")
