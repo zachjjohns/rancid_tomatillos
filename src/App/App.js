@@ -17,10 +17,8 @@ export default class App extends Component {
   }
   
   componentDidMount = async () => {
-    let fetchedMovies = [];
     try {
-        fetchedMovies = await getAllMovies();
-        console.log(fetchedMovies)
+      const fetchedMovies = await getAllMovies();
         this.setState({movies: fetchedMovies.movies});
       } catch (e) {
         this.setState({error: e.message})
@@ -28,9 +26,8 @@ export default class App extends Component {
   }
 
   displayMovieDetails = async id => {
-    let fetchedMovie = {};
     try {
-      fetchedMovie = await getSingleMovie(id);
+      const fetchedMovie = await getSingleMovie(id);
       this.setState({singleMovie: fetchedMovie.movie});
     } catch (e) {
       this.setState({error: e.message})

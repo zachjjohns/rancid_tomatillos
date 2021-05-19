@@ -2,7 +2,7 @@ describe("Movies Page", () => {
   beforeEach(() => {
     cy.visit('/')
     cy.fixture('movies.json').then(movieData => {
-      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {movies: movieData});
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {movies: movieData.movies});
     })
   })
 
@@ -20,7 +20,7 @@ describe("Movies Page", () => {
   });
 
   it('should display an error upon a failed fetch request', () => {
-    cy.intercept('yolo')
-    cy.contains('Failed to fetch')
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {error: "Failed to fetch"})
+    cy.visit('/')
   });
 })
