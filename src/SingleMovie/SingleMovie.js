@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './SingleMovie.css';
 import { Link } from 'react-router-dom';
 
-export default function SingleMovie({ movie }) {
+export default class SingleMovie extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      movie = {}
+    }
+  }
 
-  if(movie) {
+  componentDidMount = async() => {
+    try {
+      const fetchedMovie = await getSingleMovie(this.props.id);
+      this.setState({movie: fetchedMovie.movie});
+    } catch (e) {
+      this.setState({error: e})
+    }
+  }
+
+
+  
+  render() {
     return (
     <section>
       <div className="banner-container" id={movie.id}>
@@ -27,3 +44,5 @@ export default function SingleMovie({ movie }) {
     </section>
   )}
 }
+
+

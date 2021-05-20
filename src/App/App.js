@@ -44,10 +44,13 @@ export default class App extends Component {
               {!!this.state.error ? <h2>{this.state.error}</h2> :
               <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
             </Route>
-            <Route path={`/:id`}>
+            <Route exact 
+            path={`/:id`}
+            render={({ match }) => {
+              const id = match.params.id
               {!!this.state.error ? <h2>{this.state.error}</h2> :
-              <SingleMovie movie={this.state.singleMovie}/>}
-            </Route>
+              <SingleMovie id={id}/>}
+            }}/>
             <Redirect to='/' />
           </Switch>
       </div>
