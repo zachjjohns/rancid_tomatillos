@@ -2,7 +2,6 @@ describe('Single Movie View', () => {
   beforeEach(() => {
     cy.visit('/')
     cy.get('main').get('#400160').click()
-    cy.get('main').get('#400160').click()
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/400160', {
       "id": 400160,
       "title": "The SpongeBob Movie: Sponge on the Run",
