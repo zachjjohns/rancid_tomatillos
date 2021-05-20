@@ -30,7 +30,7 @@ export default class App extends Component {
       const fetchedMovie = await getSingleMovie(id);
       this.setState({singleMovie: fetchedMovie.movie});
     } catch (e) {
-      this.setState({error: e})
+      this.setState({error: e.message})
     }
   }
   

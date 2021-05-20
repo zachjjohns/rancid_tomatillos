@@ -3,9 +3,10 @@ import './SingleMovie.css';
 import { Link } from 'react-router-dom';
 
 export default function SingleMovie({ movie }) {
+
   if(movie) {
     return (
-      <div>
+    <section>
       <div className="banner-container" id={movie.id}>
         <img className="banner-photo" src={movie.backdrop_path} alt={`Background banner for ${movie.title}`}></img>
         <Link to='/' className="return-home"><i className="fas fa-times"></i></Link>
@@ -23,6 +24,6 @@ export default function SingleMovie({ movie }) {
           <p className="movie-runtime">Runtime: {movie.runtime} minutes</p>
         </div>
       </div>
-    </div>
+    </section>
   )}
 }
