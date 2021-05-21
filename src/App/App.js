@@ -9,9 +9,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
-      error: '',
-      singleMovie: {},
+      movies: null,
+      error: '', 
     }
   }
   componentDidMount = async () => {
@@ -23,6 +22,10 @@ export default class App extends Component {
       }
   }
   render() {
+    console.log(this.state.movies);
+    if(!this.state.error && !this.state.movies) {
+      return <h1>BRB Going to go hydrate the hamster(His name is Napples)</h1>
+    }
     return (
       <div className="app">
         <NavBar />
