@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import {getAllMovies, getSingleMovie} from '../API';
+import {getAllMovies} from '../API';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import './App.css';
-
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
-      error: '',
-      singleMovie: {},
+      movies: null,
+      error: '', 
     }
   }
-  
   componentDidMount = async () => {
     try {
       const fetchedMovies = await getAllMovies();
@@ -24,35 +21,29 @@ export default class App extends Component {
         this.setState({error: e.message})
       }
   }
-
-  displayMovieDetails = async id => {
-    try {
-      const fetchedMovie = await getSingleMovie(id);
-      this.setState({singleMovie: fetchedMovie.movie});
-    } catch (e) {
-      this.setState({error: e.message})
-    }
-  }
-  
-
   render() {
+    console.log(this.state.movies);
+    if(!this.state.error && !this.state.movies) {
+      return <h1>BRB Going to go hydrate the hamster(His name is Napples)</h1>
+    }
     return (
       <div className="app">
         <NavBar />
           <Switch>
             <Route exact path='/'>
               {!!this.state.error ? <h2>{this.state.error}</h2> :
-              <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
+              <Movies movies={this.state.movies}/>}
             </Route>
-            <Route path={`/:id`}>
-              {!!this.state.error ? <h2>{this.state.error}</h2> :
-              <SingleMovie movie={this.state.singleMovie}/>}
-            </Route>
+            <Route exact
+            path="/:id"
+            render={({ match }) => {
+              const id  = match.params.id
+              return <SingleMovie id={id}/>}
+            }/>
             <Redirect to='/' />
           </Switch>
       </div>
   )}
-}
-
+}  
 
 
