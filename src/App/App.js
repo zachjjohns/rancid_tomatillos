@@ -10,7 +10,8 @@ export default class App extends Component {
     super();
     this.state = {
       movies: null,
-      error: '', 
+      error: '',
+      search: ''
     }
   }
   componentDidMount = async () => {
@@ -21,14 +22,20 @@ export default class App extends Component {
         this.setState({error: e.message})
       }
   }
+
+  handleChange = (event) => {
+    this.setState({search: event.target.value});
+    console.log(event.target.value);
+    console.log(this.state.search);
+  }
+
   render() {
-    console.log(this.state.movies);
     if(!this.state.error && !this.state.movies) {
       return <h1>BRB Going to go hydrate the hamster(His name is Napples)</h1>
     }
     return (
       <div className="app">
-        <NavBar />
+        <NavBar searchValue={this.state.search} handleChange={this.handleChange} />
           <Switch>
             <Route exact path='/'>
               {!!this.state.error ? <h2>{this.state.error}</h2> :
