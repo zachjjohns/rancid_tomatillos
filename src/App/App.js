@@ -9,7 +9,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: null,
+      movies: [],
       error: '',
       search: ''
     }
@@ -25,8 +25,6 @@ export default class App extends Component {
 
   handleChange = (event) => {
     this.setState({search: event.target.value});
-    console.log(event.target.value);
-    console.log(this.state.search);
   }
 
   render() {
@@ -39,7 +37,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path='/'>
               {!!this.state.error ? <h2>{this.state.error}</h2> :
-              <Movies movies={this.state.movies}/>}
+              <Movies movies={this.state.movies} searchValue={this.state.search}/>}
             </Route>
             <Route exact
             path="/:id"
