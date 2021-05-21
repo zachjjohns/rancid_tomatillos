@@ -9,8 +9,9 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: null,
-      error: '', 
+      movies: [],
+      error: '',
+      search: ''
     }
   }
   componentDidMount = async () => {
@@ -21,24 +22,32 @@ export default class App extends Component {
         this.setState({error: e.message})
       }
   }
+
+  handleChange = (event) => {
+    this.setState({search: event.target.value});
+  }
+
+  removeSearchValue = () => {
+    this.setState({search: ''})
+  }
+
   render() {
-    console.log(this.state.movies);
     if(!this.state.error && !this.state.movies) {
       return <h1>BRB Going to go hydrate the hamster(His name is Napples)</h1>
     }
     return (
       <div className="app">
-        <NavBar />
+        <NavBar searchValue={this.state.search} handleChange={this.handleChange} />
           <Switch>
             <Route exact path='/'>
               {!!this.state.error ? <h2>{this.state.error}</h2> :
-              <Movies movies={this.state.movies}/>}
+              <Movies movies={this.state.movies} searchValue={this.state.search}/>}
             </Route>
             <Route exact
             path="/:id"
             render={({ match }) => {
               const id  = match.params.id
-              return <SingleMovie id={id}/>}
+              return <SingleMovie id={id} search={this.removeSearchValue}/>}
             }/>
             <Redirect to='/' />
           </Switch>

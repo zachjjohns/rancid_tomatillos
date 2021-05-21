@@ -15,6 +15,7 @@ export default class SingleMovie extends Component {
       console.log("HULLO")
       const fetchedMovie = await getSingleMovie(this.props.id);
       this.setState({movie: fetchedMovie.movie});
+      this.props.search();
     } catch (e) {
       this.setState({error: e})
     }
