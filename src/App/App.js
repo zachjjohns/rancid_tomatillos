@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import {getAllMovies, getSingleMovie} from '../API';
+import {getAllMovies} from '../API';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import './App.css';
-
 export default class App extends Component {
   constructor() {
     super();
@@ -15,7 +14,6 @@ export default class App extends Component {
       singleMovie: {},
     }
   }
-  
   componentDidMount = async () => {
     try {
       const fetchedMovies = await getAllMovies();
@@ -24,17 +22,6 @@ export default class App extends Component {
         this.setState({error: e.message})
       }
   }
-
-  displayMovieDetails = async id => {
-    try {
-      const fetchedMovie = await getSingleMovie(id);
-      this.setState({singleMovie: fetchedMovie.movie});
-    } catch (e) {
-      this.setState({error: e.message})
-    }
-  }
-  
-
   render() {
     return (
       <div className="app">
@@ -42,20 +29,18 @@ export default class App extends Component {
           <Switch>
             <Route exact path='/'>
               {!!this.state.error ? <h2>{this.state.error}</h2> :
-              <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>}
+              <Movies movies={this.state.movies}/>}
             </Route>
-            <Route exact 
-            path={`/:id`}
+            <Route exact
+            path="/:id"
             render={({ match }) => {
-              const id = match.params.id
-              {!!this.state.error ? <h2>{this.state.error}</h2> :
-              <SingleMovie id={id}/>}
-            }}/>
+              const id  = match.params.id
+              return <SingleMovie id={id}/>}
+            }/>
             <Redirect to='/' />
           </Switch>
       </div>
   )}
-}
-
+}  
 
 
