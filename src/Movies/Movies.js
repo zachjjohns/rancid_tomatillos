@@ -1,9 +1,7 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './movies.css';
-
-export default function Movies({ movies, displayMovieDetails }) {
-
+export default function Movies({ movies }) {
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
@@ -11,11 +9,9 @@ export default function Movies({ movies, displayMovieDetails }) {
         img={movie.poster_path}
         title={movie.title}
         key={movie.id}
-        displayMovieDetails={displayMovieDetails}
       />
     )
   })
-
     return (
       <main className='movies-display'>
         {movieCards}
