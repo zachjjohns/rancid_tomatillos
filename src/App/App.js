@@ -27,6 +27,10 @@ export default class App extends Component {
     this.setState({search: event.target.value});
   }
 
+  removeSearchValue = () => {
+    this.setState({search: ''})
+  }
+
   render() {
     if(!this.state.error && !this.state.movies) {
       return <h1>BRB Going to go hydrate the hamster(His name is Napples)</h1>
@@ -43,7 +47,7 @@ export default class App extends Component {
             path="/:id"
             render={({ match }) => {
               const id  = match.params.id
-              return <SingleMovie id={id}/>}
+              return <SingleMovie id={id} search={this.removeSearchValue}/>}
             }/>
             <Redirect to='/' />
           </Switch>

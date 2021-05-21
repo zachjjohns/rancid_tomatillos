@@ -6,7 +6,10 @@ export default function NavBar({ searchValue, handleChange }) {
   return (
     <header className="navbar">
       <Link to="/">Rotten Tomatillos</Link>
-      <input type="search" placeholder="Search Movies" value={searchValue} onChange={(event) => handleChange(event)}></input>
+      <input type="search"
+      placeholder="Search Movies"
+      value={searchValue} 
+      onChange={(event) => handleChange(event)}/>
     </header>
   )
 }
