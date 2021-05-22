@@ -48,8 +48,8 @@ export default class App extends Component {
               {!!this.state.error ? <h1>{this.state.error}</h1> :
               <Movies movies={this.state.movies} searchValue={this.state.search}/>}
             </Route>
-            <Route exact
-            path="/:id"
+            <Route
+            exact path="/:id"
             render={({ match }) => {
               const id  = match.params.id
               return <SingleMovie id={id} search={this.removeSearchValue}/>}

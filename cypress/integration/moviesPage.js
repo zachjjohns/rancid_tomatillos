@@ -1,9 +1,6 @@
 describe("Movies Page", () => {
   beforeEach(() => {
     cy.visit('/')
-    // cy.fixture('movies.json').then(movieData => {
-    //   cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {movies: movieData.movies});
-    // })
   })
 
   it('should render a NavBar component containing the app name', () => {
@@ -35,7 +32,7 @@ describe("Movies Page", () => {
   });
 
   it('should display an error message upon a failed fetch', () => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {movies: [], error: "Oops! Failed to get movie data."})
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {statusCode: 404})
     cy.visit('/')
     cy.get('h1')
   });

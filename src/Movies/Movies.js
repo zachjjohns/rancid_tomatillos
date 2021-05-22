@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './movies.css';
 export default function Movies({ movies, searchValue }) {
-  if(movies){
+
     const movieCards = movies.map(movie => {
       return (
         <MovieCard
@@ -28,6 +28,4 @@ export default function Movies({ movies, searchValue }) {
         {movieCards}
       </main>
     )
-  }
-  return null
 }
