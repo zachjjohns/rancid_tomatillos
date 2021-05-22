@@ -31,7 +31,6 @@ describe('Single Movie View', () => {
   it('should contain a poster image of the movie', () => {
     cy.get('.movie-poster')
   });
-
   
   it('should be render specific movie details', () => {
     cy.get('section').contains("Release Date:")
@@ -46,4 +45,9 @@ describe('Single Movie View', () => {
     cy.get('i').click()
       .url().should('eq', 'http://localhost:3000/')
   });
+
+  it('should return to main page when clicking on the NavBar logo', () => {
+    cy.get('a').contains('Rotten Tomatillos').click()
+      .url().should('eq', 'http://localhost:3000/')
+  })
 })
