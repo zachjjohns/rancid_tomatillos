@@ -31,11 +31,7 @@ describe('Single Movie View', () => {
   it('should contain a poster image of the movie', () => {
     cy.get('.movie-poster')
   });
-
-  it('should have a button to close details and return to the main page', () => {
-    cy.get('i')
-  });
-
+  
   it('should be render specific movie details', () => {
     cy.get('section').contains("Release Date:")
       .get('section').contains("Genres:")
@@ -43,5 +39,15 @@ describe('Single Movie View', () => {
       .get('section').contains("Budget:")
       .get('section').contains("Revenue:")
       .get('section').contains("Runtime:")
+  });
+  
+  it('should have a button to close details and return to the main page', () => {
+    cy.get('i').click()
+      .url().should('eq', 'http://localhost:3000/')
+  });
+
+  it('should return to main page when clicking on the NavBar logo', () => {
+    cy.get('a').contains('Rotten Tomatillos').click()
+      .url().should('eq', 'http://localhost:3000/')
   })
 })
