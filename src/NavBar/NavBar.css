@@ -8,17 +8,17 @@
   min-width: 100%;
 }
 
-.return-home {
-  font-size: 2rem;
-  color: #FFF;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding-right: 1rem;
-}
-
-header > a {
+.navbar > a {
   height: 75%;
   font-size: 300%;
+}
+
+.navbar > input {
+  border: 1px solid cyan;
+  margin-right: 5%;
+  border-radius: 100px;
+  height: 50px;
+  width: 200px;
+  font-size: 15px;
 }
 

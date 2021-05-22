@@ -14,3 +14,9 @@
 .movie-card > img {
   width: 100%;
 }
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 8px cyan,
+  -2px -2px 8px cyan
+}
