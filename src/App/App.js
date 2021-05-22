@@ -32,7 +32,7 @@ export default class App extends Component {
   }
 
   render() {
-    if (!!this.state.error) {
+    if (this.state.error) {
       return <h1>{this.state.error}</h1>
     }
 
@@ -45,17 +45,17 @@ export default class App extends Component {
         <NavBar searchValue={this.state.search} handleChange={this.handleChange} />
           <Switch>
             <Route exact path='/'>
-              {!!this.state.error ? <h1>{this.state.error}</h1> :
+              {this.state.error ? <h1>{this.state.error}</h1> :
               <Movies movies={this.state.movies} searchValue={this.state.search}/>}
             </Route>
             <Route
             exact path="/:id"
             render={({ match }) => {
               const id  = match.params.id
-              return <SingleMovie id={id} search={this.removeSearchValue}/>}
-            }/>
-            <Redirect to='/' />
+              return <SingleMovie id={id} search={this.removeSearchValue}/>
+            }}/>
           </Switch>
+          <Redirect to="/" />
       </div>
   )}
 }  
