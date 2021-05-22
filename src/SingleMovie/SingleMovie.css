@@ -1,5 +1,20 @@
-.banner-container {
-  min-height: 300px;
+.single-movie-container {
+  height: 80%;
+}
+
+.banner-photo {
+  position: absolute;
+  object-fit: cover;
+  min-width: 100%;
+  max-height: 700px;
+  overflow: inherit;
+  opacity: 40%;
+  z-index: -1;
+  box-shadow: 0px 10px 10px black;
+}
+
+.icon-container {
+  min-height: 50px;
   top: 0;
   width: 100%;
   display: flex;
@@ -7,17 +22,8 @@
   justify-content: flex-start;
 }
 
-.banner-photo {
-  position: absolute;
-  object-fit: cover;
-  min-width: 100%;
-  max-height: 300px;
-  overflow: inherit;
-  opacity: 70%;
-  z-index: -1;
-}
-
-.return-home {
+.return-home-button {
+  font-size: 2rem;
   background-color: grey;
   border-radius: 50%;
   width: 50px;
@@ -32,17 +38,18 @@
   opacity: .7;
 }
 
-.return-home:hover {
+.return-home-button:hover {
   color: cyan;
   opacity: .9;
 }
 
 .movie-poster {
   top: 80px;
-  width: 20%;
-  height: 450px;
-  border: solid 1px black;
-  opacity: 100%;
+  width: 20rem;
+  /* height: 450px; */
+  border: solid 2px cyan;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px black;
 }
 
 .info {
@@ -50,19 +57,76 @@
   justify-content: space-evenly;
 }
 
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  height: 20rem;
+  width: 30rem;
+  background: rgba(0, 0, 0, .6);
+  box-shadow: 5px 5px 5px #000;
+  border: 2px solid cyan;
+  border-radius: 20px;
+  padding: .5rem;
+}
+
+.movie-title {
+  font-size: 3rem;
+  text-shadow: 0px 0px 8px cyan;
+  margin-bottom: .2rem;
+}
+
+.release, .rating {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-shadow: 0px 0px 8px black;
+}
+
+.movie-release, .movie-rating {
+  font-size: 1.5rem;
+  text-shadow: 0px 0px 8px black;
+  margin-top: .2rem;
+  font-weight: bold;
+}
+
+
 .details-container {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  background: #303030;
+  justify-content: center;
+  align-self: center;
+  background: rgba(0, 0, 0, .6);
   box-shadow: 5px 5px 5px #000;
-  border: 1px solid cyan;
+  border: 2px solid cyan;
   border-radius: 20px;
-  width: 300px;
+  min-height: 18rem;
+  width: 20rem;
+  padding: 1rem;
 }
 
 .movie-overview {
   text-align: center;
+  font-size: .9rem;
+}
+
+.overview, .genres, .budget, .revenue, .runtime {
+  margin-bottom: .3rem;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.movie-overview,
+.movie-genres,
+.movie-budget,
+.movie-revenue,
+.movie-runtime {
+  margin-top: 0;
+  font-weight: bold;
 }

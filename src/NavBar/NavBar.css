@@ -5,16 +5,7 @@
   height: 75px;
   background-color: #303030;
   border-bottom: 4px solid cyan;
-  min-width: 100%;
-}
-
-.return-home {
-  font-size: 2rem;
-  color: #FFF;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding-right: 1rem;
+  width: 100%;
 }
 
 header > a {
