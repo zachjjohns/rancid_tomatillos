@@ -16,6 +16,7 @@
 }
 
 .movie-card:hover {
+  transition-duration: .5s;
   transform: scale(1.05);
   box-shadow: 2px 2px 8px cyan,
   -2px -2px 8px cyan
