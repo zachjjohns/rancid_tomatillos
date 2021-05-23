@@ -26,10 +26,10 @@ export default class SingleMovie extends Component {
         <section className="single-movie-container">
           <img className="banner-photo" src={this.state.movie.backdrop_path} alt={`Background banner for ${this.state.movie.title}`}></img>
           <div className="icon-container" id={this.state.movie.id}>
-            <Link to='/' className="return-home-button"><i className="fas fa-times"></i></Link>
+            <Link to='/' className="return-home-button"><i title="Return Home" className="fas fa-times"></i></Link>
           </div>
           <div className="info">
-            <img className="movie-poster" src={this.state.movie.poster_path} alt=" "></img>
+            <img className="movie-poster" src={this.state.movie.poster_path} alt={`Poster for ${this.state.movie.title}`}></img>
             <div className="title-container">
               <h3 className="movie-title">{this.state.movie.title}</h3>
               <p className="release">Release Date</p>
