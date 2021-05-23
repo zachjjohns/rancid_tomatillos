@@ -23,9 +23,10 @@ export default function Movies({ movies, searchValue }) {
         </main>
       )}
 
-    return (
-      <main className='movies-display'>
-        {movieCards}
-      </main>
-    )
+  return (
+    <main className='movies-display'>
+      {movieCards}
+    </main>
+  )
 }
+

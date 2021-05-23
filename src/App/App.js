@@ -36,8 +36,12 @@ export default class App extends Component {
       return <h1>{this.state.error}</h1>
     }
 
-    if (!this.state.error && !this.state.movies) {
-      return <h1>BRB, Going to go hydrate the hamster (His name is Napples)</h1>
+    if (!this.state.error && !this.state.movies.length) {
+      return (
+      <div className="loading-movies">
+        <h1>Loading....</h1>
+        <h3>Kindly hold on until I finish feeding the hamster(His name is Napples).</h3>
+      </div>) 
     }
 
     return (
@@ -51,7 +55,7 @@ export default class App extends Component {
             <Route
             exact path="/:id"
             render={({ match }) => {
-              const id  = match.params.id
+              const id  = match.params.id;
               return <SingleMovie id={id} search={this.removeSearchValue}/>
             }}/>
             <Redirect to="/" />

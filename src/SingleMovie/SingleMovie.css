@@ -1,3 +1,4 @@
+
 .banner-photo {
   position: absolute;
   object-fit: cover;
@@ -132,6 +133,7 @@
   font-weight: bold;
 }
 
+/*~~~~~~Tablet/Phone~~~~~~*/
 @media screen and (max-width: 850px) {
   .banner-photo {
     object-fit: cover;

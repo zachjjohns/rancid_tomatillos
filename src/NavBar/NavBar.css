@@ -5,11 +5,57 @@
   height: 75px;
   background-color: #303030;
   border-bottom: 4px solid cyan;
-  width: 100%;
+  min-width: 100%;
 }
 
-header > a {
-  height: 75%;
-  font-size: 300%;
+.navbar > a {
+  margin-left: 1%;
+  height: 25%;
+  font-size: 20px;
 }
+
+.navbar > a:hover {
+  text-shadow: 0px 0px 6px cyan;
+}
+
+.navbar > input {
+  border: 2px solid cyan;
+  margin-right: 1%;
+  border-radius: 100px;
+  height: 30px;
+  width: 100px;
+  font-size: 10px;
+  text-align: center;
+}
+
+/*~~~~~Desktop~~~~~*/
+@media screen and (min-width: 800px) {
+  .navbar > a {
+    height: 70px;
+    font-size: 50px;
+  }
+
+  .navbar > input {
+    height: 50px;
+    width: 200px;
+    font-size: 15px;
+  }
+}
+
+/*~~~~~~Tablet~~~~~~*/
+@media screen and (max-width: 800px) and (min-width: 480px) {
+  .navbar > a {
+    height: 50%;
+    font-size: 30px;
+  }
+
+  .navbar > input {
+    height: 40px;
+    width: 150px;
+    font-size: 15px;
+  }
+}
+
+
+
 

@@ -7,7 +7,7 @@ export default class SingleMovie extends Component {
     super(props);
     this.state = {
       movie: {},
-      error: ''
+      error: '',
     }
   }
   componentDidMount = async() => {
@@ -16,12 +16,25 @@ export default class SingleMovie extends Component {
       this.setState({movie: fetchedMovie.movie});
       this.props.search();
     } catch (e) {
-      this.setState({error: e})
+      this.setState({error: e.message})
     }
   }
 
   render() {
-    if (this.state.movie.title) {
+    if (this.state.error) {
+      return <h1>{this.state.error}</h1>
+    }
+
+    if (!this.state.movie.title && !this.state.error) {
+      return (
+        <div className="loading-movies">
+          <h1>Loading....</h1>
+          <h3>Fetching your movie ticket</h3>
+        </div>
+      ) 
+    }
+
+    if(this.state.movie.title) {
       return (
         <section className="single-movie-container">
           <img className="banner-photo" src={this.state.movie.backdrop_path} alt={`Background banner for ${this.state.movie.title}`}></img>
@@ -52,7 +65,8 @@ export default class SingleMovie extends Component {
           </div>
         </section>
       )
-    } return null
+    }
+    return null
   }  
 
 }

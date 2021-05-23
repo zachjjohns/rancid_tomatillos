@@ -13,3 +13,12 @@ a {
 a:visited {
   color: #FFFFFF;
 }
+
+.loading-movies {
+  width: 100%;
+  text-align: center;
+}
+
+.loading-movies > h1 {
+  color: cyan;
+}
