@@ -41,7 +41,7 @@ export default class SingleMovie extends Component {
               <p className="overview">Overview</p>
               <p className="movie-overview">{this.state.movie.overview}</p>
               <p className="genres">Genres</p>
-              <p className="movie-genres">{this.state.movie.genres.length > 1 ? this.state.movie.genres.map(genre => `${genre} | `): this.state.movie.genres}</p>
+              <p className="movie-genres">{this.state.movie.genres.join(" | ")}</p>
               <p className="budget">Budget</p>
               <p className="movie-budget">${this.state.movie.budget.toLocaleString()}</p>
               <p className="revenue">Revenue</p>
