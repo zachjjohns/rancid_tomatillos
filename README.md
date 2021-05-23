@@ -12,11 +12,12 @@
 * CSS
 
 ## Deploy Link
-* !!!PLACEHOLDER!!!
+* [Click Here to view the deployed project](http://rancid.tomatillos.surge.sh/)
 
 ## Visual Demo:
-![GIF demonstrating how to navigate Rotten Tomatillos]()
-![GIF demonstrating how to use the search bar]()
+![GIF demonstrating how to navigate Rotten Tomatillos](https://media.giphy.com/media/l5D9sxGF4y69R2oHRB/giphy.gif)
+![GIF demonstrating how to return to home page](https://media.giphy.com/media/3GEwHryJ2qhQuwzYgA/giphy.gif)
+![GIF demonstrating how to use the search bar](https://media.giphy.com/media/xXx8y8RZlEYmaok4D8/giphy.gif)
 
 ## Learning Goals
 * The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
