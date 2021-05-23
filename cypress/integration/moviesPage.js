@@ -38,7 +38,7 @@ describe("Movies Page", () => {
   it('should display a loading message when retrieving data', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {error: ""})
       .visit('/')
-      .get('h1').contains("BRB, Going to go hydrate the hamster (His name is Napples)")
+      .get('h1').contains("Loading....")
   });
 
   it('should take the user to a specific movie\'s details when clicking on the respective card', () => {
