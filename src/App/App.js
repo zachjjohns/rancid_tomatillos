@@ -51,12 +51,13 @@ export default class App extends Component {
             <Route
             exact path="/:id"
             render={({ match }) => {
-              const id  = match.params.id
+              const id  = match.params.id;
+              
               return <SingleMovie id={id} search={this.removeSearchValue}/>
             }}/>
-          <Redirect to="/" />
-        </Switch>
-    </div>
+            <Redirect to="/" />
+          </Switch>
+      </div>
   )}
 }  
 
