@@ -55,8 +55,8 @@ export default class App extends Component {
               return <SingleMovie id={id} search={this.removeSearchValue}/>
             }}/>
           <Redirect to="/" />
-          </Switch>
-      </div>
+        </Switch>
+    </div>
   )}
 }  
 
