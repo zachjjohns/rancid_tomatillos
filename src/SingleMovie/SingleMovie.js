@@ -26,7 +26,12 @@ export default class SingleMovie extends Component {
     }
 
     if (!this.state.movie.title && !this.state.error) {
-      return <h1 className="loading-movie">Fetching your movie ticket</h1>
+      return (
+        <div className="loading-movies">
+          <h1>Loading....</h1>
+          <h3>Fetching your movie ticket</h3>
+        </div>
+      ) 
     }
 
     if(this.state.movie.title) {
