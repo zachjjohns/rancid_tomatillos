@@ -54,8 +54,8 @@ export default class App extends Component {
               const id  = match.params.id
               return <SingleMovie id={id} search={this.removeSearchValue}/>
             }}/>
+            <Redirect to="/" />
           </Switch>
-          <Redirect to="/" />
       </div>
   )}
 }  
