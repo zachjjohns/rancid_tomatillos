@@ -34,5 +34,26 @@
     height: 75%;
     font-size: 300%;
   }
+
+  .navbar > input {
+    height: 50px;
+    width: 200px;
+    font-size: 15px;
+  }
 }
+
+@media screen and (max-width: 800px) and (min-width: 480px) {
+  .navbar > a {
+    height: 50%;
+    font-size: 30px;
+  }
+
+  .navbar>input {
+    height: 50px;
+    width: 150px;
+    font-size: 15px;
+  }
+}
+
+
 
